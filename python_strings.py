@@ -67,7 +67,6 @@ class StringsFunctions:
         }
 
         words = sentence.split()
-        print(words)
 
         for word in words:
             occurrence = words.count(word)
@@ -75,7 +74,7 @@ class StringsFunctions:
                 most_common_word["occurrence"] = occurrence
                 most_common_word["word"] = word
 
-        return most_common_word['occurrence']
+        return most_common_word['word']
 
     # - Generate a random password
 
@@ -96,11 +95,13 @@ class StringsFunctions:
             "letter": "",
             "occurrence": 0
         }
+        given_string = given_string.lower()
 
         for letter in given_string:
-            occurrence = given_string.count(letter)
-            if occurrence > most_common_letter["occurrence"]:
-                most_common_letter["occurrence"] = occurrence
-                most_common_letter["letter"] = letter
+            if letter.isalpha():
+                occurrence = given_string.count(letter)
+                if occurrence > most_common_letter["occurrence"]:
+                    most_common_letter["occurrence"] = occurrence
+                    most_common_letter["letter"] = letter
 
         return most_common_letter['letter']
